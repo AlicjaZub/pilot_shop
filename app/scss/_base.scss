@@ -1,0 +1,25 @@
+$main-color: #b7b7b8;
+$background: #fff;
+
+* {
+  box-sizing: border-box;
+  a:link {
+    color: $main-color;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $main-color;
+    text-decoration: none;
+  }
+}
+
+html {
+  font-size: 62.5%; /* makes 1 rem mean 10 pixels, instead of 14 */
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: $background;
+  outline: none;
+  border: 0;
+}

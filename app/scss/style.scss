@@ -1,4 +1,515 @@
-body {
-  background: red;
-  font-size: 10px;
+@import 'base';
+
+@mixin fontWidthColorChange($color: #000) {
+  color: $color;
+  text-align: left;
+  font-size: 1.6rem;
 }
+
+@mixin centerWithWidth($width: auto) {
+  display: initial;
+  position: relative;
+  margin: 0 auto;
+  width: $width
+}
+
+div, input, button, select, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  background-color: transparent;
+  color: $main-color;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 0.05rem;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+}
+
+.content-area {
+  padding: 0 15px;
+}
+
+.header {
+  overflow: auto;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  line-height: 2.2rem;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+
+.header-phone {
+  display: none;
+}
+
+.header-search {
+  vertical-align: top;
+  order: 3;
+}
+
+#search-field {
+  text-align: center;
+  vertical-align: top;
+  padding: 6px;
+  width: 142px;
+}
+
+#search-submit {
+  background-color: transparent;
+  border: none;
+  width: 2.1rem;
+  vertical-align: top;
+}
+
+.header-cart {
+  margin-right: 12px;
+  order: 1;
+}
+
+.header-cart button {
+  margin-right: 6px;
+}
+
+.header-user {
+  order: 4;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header-user-button {
+  margin-right: 1.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 0rem;
+  line-height: 2.2rem;
+}
+
+.header-sticky {
+  padding: 30px 0;
+  overflow: auto;
+  background-color: $background;
+}
+
+.header-logo {
+  display: block;
+  margin: auto;
+}
+
+.header-menu {
+  margin: 0 auto;
+  /* become a dropdown box */
+  a {
+    display: none;
+  }
+}
+
+#headermenu-dropdown {
+  border: 2px solid #000000;
+  margin: 1rem;
+  padding: 1rem;
+  vertical-align: middle;
+  font-weight: normal;
+  @include fontWidthColorChange();
+}
+
+.swiper {
+  position: relative;
+}
+
+.swiper img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.swiper-caption {
+  position: absolute;
+  padding: 10px;
+  left: 20px;
+  right: 20px;
+  top: 48%;
+  transform: translateY(-52%);
+}
+
+.swiper h2 {
+  color: $background;
+  font-size: 2.2rem;
+  letter-spacing: 0;
+}
+
+.swiper h3 {
+  display: none;
+  color: $background;
+  font-size: 1.9rem;
+  letter-spacing: 0.08rem;
+}
+
+.swiper button {
+  display: block;
+  border: 2px solid $background;
+  margin: auto;
+  padding: 12px 21px;
+  background-color: transparent;
+  color: $background;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+}
+
+.showcase {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.showcase-block {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+.showcase-active {
+  display: initial
+}
+
+.showcase-block img {
+  display: block;
+  width: 100%
+}
+
+.showcase-content {
+  position: absolute;
+  top: 25%;
+  padding: 0 30px;
+  width: 100%;
+}
+
+.showcase-block h3 {
+  color: $background;
+  text-align: left;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+.showcase-block h4 {
+  position: absolute;
+  text-align: left;
+  color: $background;
+  font-weight: normal;
+}
+
+.showcase-block button {
+  display: block;
+  margin: 20px 4px 24px 4px;
+  border: 2px solid $background;
+  padding: 9px 24px;
+  color: $background;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.page-heading {
+  margin: 30px 0;
+  font-size: 1.9rem;
+  font-weight: bolder;
+  letter-spacing: 0.04em;
+  color: #04293f;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.product-box {
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.product-img {
+  position: relative;
+  width: 120px;
+  max-height: 100%;
+}
+
+.product-img .sticker {
+  color: #FFFFFF;
+  font-size: 1rem;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 10px;
+  z-index: 100;
+}
+
+.product-img .discount {
+  background: #e22a2f;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.product-img .new {
+  background: #589ec2;
+  right: 10px;
+  text-transform: uppercase;
+}
+
+.product-img img {
+  width:100%;
+}
+
+.product-info {
+  text-align: center;
+  margin-top: 20px;
+  flex: 1;
+}
+
+.product-name {
+  color: #000000;
+}
+
+.product-description {
+  display: none;
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.product-price {
+  margin-top: 8px;
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.product-price .sale-price {
+  color: #589ec2;
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+.product-price .old-price {
+  text-decoration: line-through;
+}
+
+/* desktop mode */
+@media screen and (min-width:1000px) {
+
+  .content-area {
+    width: 970px;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding-top: 14px;
+    padding-bottom: 10px;
+  }
+
+  .header .content-area {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-phone {
+    display: block;
+    a {
+      color: #a2a2a2;
+      font-size: 1.4rem;
+      font-weight: normal;
+      vertical-align: baseline;
+      &:hover {
+        color: #589ec2;
+      }
+      &:visited {
+        color: #a2a2a2;
+      }
+    }
+  }
+
+  .header-search {
+    margin-top: -5px;
+    font-size: 1.4rem;
+  }
+
+  .header-cart {
+    line-height: inherit;
+    position: relative;
+    button, select {
+      margin-right: 1.9rem;
+      font-size: inherit;
+      line-height: inherit;
+      vertical-align: top;
+    }
+    &::after, &::after {
+      content:"";
+      width: 1px;
+      background: #e9ebed;
+      vertical-align: inherit;
+      position: absolute;
+      top: -6px;
+      height: 51px;
+      right: 1px;
+    }
+  }
+
+  .header-user {
+    width: auto;
+    margin-right: 14px;
+    order: 0;
+
+  }
+
+  .header-user-button {
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: top;
+  }
+
+  .header-logo {
+    display: block;
+    height: 40px;
+    margin: auto 0;
+  }
+
+  .header-menu {
+    color: #3b3442;
+    font-size: 1.6rem;
+    margin: auto 0;
+    line-height: 40px;
+    a {
+      border: 2px solid transparent;
+      padding: 1rem;
+      color: #3b3442;
+      text-decoration: none;
+      font-size: 1.4rem;
+      display: initial;
+      margin-right: 2px;
+      &:hover {
+        border: 2px solid #3b3442;
+      }
+    }
+  }
+
+  #headermenu-dropdown {
+    display: none;
+  }
+
+  #navigation-active {
+    border: 2px solid #3b3442;
+  }
+
+  .header-sticky {
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 30px 0;
+  }
+
+  .header-sticky .content-area {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .swiper-caption {
+    position: absolute;
+    padding: 10px;
+    left: 20px;
+    right: 20px;
+    top: 32%;
+    transform: translateY(-52%);
+  }
+
+  .swiper h2 {
+    font-size: 7.2rem;
+    letter-spacing: 0.4rem;
+  }
+
+  .swiper h3 {
+    display: initial;
+    font-size: 1.8rem;
+    margin-top: 0px;
+  }
+
+  .swiper button {
+    margin-top: 22px;
+  }
+
+  .showcase {
+    position: relative;
+    margin-top: -145px;
+  }
+
+  .showcase-block {
+    @include centerWithWidth(303px);
+  }
+
+  .showcase-block h3 {
+    text-align: left;
+    font-size: 2.4rem;
+    margin: 0 0 6px 0;
+  }
+
+  .showcase-block h4 {
+    @include fontWidthColorChange($color: #000);
+  }
+
+  .showcase-block button {
+    display: none;
+  }
+
+  .product-box {
+    width: 25%;
+    height: 440px;
+    display: block;
+  }
+
+  .product-img {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .product-description {
+    display: initial;
+  }
+
+}
+
+@media screen and (min-width:1300px) {
+  .content-area {
+    width: 1170px;
+  }
+
+  .swiper-caption {
+    top: 50%;
+  }
+
+  .showcase-block {
+    @include centerWithWidth(370px);
+  }
+}
+
+
+
